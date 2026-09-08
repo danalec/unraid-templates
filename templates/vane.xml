@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>vane</Name>
+  <Repository>itzcrazykns1337/vane:slim-latest</Repository>
+  <Registry>https://hub.docker.com/r/itzcrazykns1337/vane</Registry>
+  <Network>br0</Network>
+  <MyIP>192.168.0.16</MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ItzCrazyKns/Vane/issues</Support>
+  <Project>https://github.com/ItzCrazyKns/Vane</Project>
+  <ReadMe>https://github.com/ItzCrazyKns/Vane/blob/master/README.md</ReadMe>
+  <Overview>Vane (formerly Perplexica) is an open-source, privacy-focused AI-powered search engine that combines web search (via SearXNG) with local LLMs (Ollama) to deliver cited sources and grounded answers.</Overview>
+  <Category>AI: Tools:Utilities Network:Web</Category>
+  <WebUI>http://[IP]:[PORT:3000]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/danalec/unraid-templates/main/templates/vane.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/ItzCrazyKns/Vane/master/public/logo.svg</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <Config Name="Data" Target="/home/vane/data" Default="/mnt/user/appdata/vane" Mode="rw" Description="Persistent data and configuration" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/vane</Config>
+  <Config Name="WebUI Port" Target="3000" Default="3000" Mode="tcp" Description="Sets the port to run Vane web interface." Type="Port" Display="always" Required="true" Mask="false">3000</Config>
+  <Config Name="SEARXNG_API_URL" Target="SEARXNG_API_URL" Default="http://192.168.0.20:80" Mode="" Description="URL of the SearXNG search engine instance" Type="Variable" Display="always" Required="true" Mask="false">http://192.168.0.20:80</Config>
+  <TailscaleStateDir/>
+</Container>
