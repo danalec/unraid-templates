@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>scoop-alts-scheduler</Name>
+  <Repository>192.168.0.10:3000/danalec/scoop-alts-scheduler:latest</Repository>
+  <Registry>http://192.168.0.10:3000</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/danalec/scoop-alts</Support>
+  <Project>https://github.com/danalec/scoop-alts</Project>
+  <ReadMe/>
+  <Overview>Agendador do bucket Scoop scoop-alts: roda update-all.py via cron e faz commit+push para o Forgejo e GitHub.</Overview>
+  <Category>Tools:Utilities</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/danalec/unraid-templates/main/templates/scoop-alts-scheduler.xml</TemplateURL>
+  <Icon/>
+  <ExtraParams>--restart=unless-stopped</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <Config Name="Repo" Target="/app" Default="/mnt/user/data/scoop-alts" Mode="rw" Description="Clone do repo scoop-alts" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/data/scoop-alts</Config>
+  <Config Name="Deploy key" Target="/data/deploy_key" Default="/mnt/user/data/scoop-alts-config/deploy_key" Mode="ro" Description="Chave privada ed25519" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/data/scoop-alts-config/deploy_key</Config>
+  <Config Name="Logs" Target="/data/logs" Default="/mnt/user/data/scoop-alts-logs" Mode="rw" Description="Logs do update-all" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/data/scoop-alts-logs</Config>
+  <Config Name="Cache" Target="/data/cache" Default="/mnt/user/data/scoop-alts-cache" Mode="rw" Description="Cache de requests" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/data/scoop-alts-cache</Config>
+  <Config Name="TZ" Target="TZ" Default="America/Sao_Paulo" Mode="" Description="Timezone" Type="Variable" Display="always" Required="false" Mask="false">America/Sao_Paulo</Config>
+  <Config Name="SCHEDULE_UPDATE_ALL" Target="SCHEDULE_UPDATE_ALL" Default="0 5 * * *" Mode="" Description="Cron do update-all.py" Type="Variable" Display="always" Required="false" Mask="false">0 5 * * *</Config>
+  <TailscaleStateDir/>
+</Container>\n

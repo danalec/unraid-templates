@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>a-eye</Name>
+  <Repository>spaceinvaderone/a-eye</Repository>
+  <Registry>https://github.com/SpaceinvaderOne/a-eye</Registry>
+  <Network>br0</Network>
+  <MyIP>192.168.0.15</MyIP>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/SpaceinvaderOne/a-eye</Support>
+  <Project>https://github.com/SpaceinvaderOne/a-eye</Project>
+  <ReadMe/>
+  <Overview>A-Eye is a self hosted AI photo intelligence tool. Uses local vision models (via Ollama) to understand, describe, tag, rename, and search your photos.</Overview>
+  <Category>AI: Productivity: MediaApp:Photos</Category>
+  <WebUI>http://[IP]:[PORT:8000]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/danalec/unraid-templates/main/templates/a-eye.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/docker_icons/A-Eye%20Logo%20small.png</Icon>
+  <Config Name="Web UI Port" Target="8000" Default="8000" Mode="tcp" Description="Port for the web interface" Type="Port" Display="always" Required="true" Mask="false">8000</Config>
+  <Config Name="Photos Directory" Target="/photos" Default="/mnt/user/photos" Mode="rw" Description="Path to your photos directory on the host" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/photos</Config>
+  <Config Name="Ollama Host" Target="OLLAMA_HOST" Default="http://192.168.0.14:11434" Mode="" Description="URL of the Ollama instance" Type="Variable" Display="always" Required="false" Mask="false">http://192.168.0.14:11434</Config>
+  <Config Name="App Data" Target="/app/data" Default="/mnt/user/appdata/a-eye" Mode="rw" Description="Persistent storage" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/a-eye</Config>
+  <TailscaleStateDir/>
+</Container>\n

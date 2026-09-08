@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Bootimus</Name>
+  <Repository>garybowers/bootimus:latest</Repository>
+  <Registry>https://hub.docker.com/r/garybowers/bootimus</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/198435-support-devzwf-bootimus/</Support>
+  <Project>https://bootimus.com/</Project>
+  <ReadMe>https://github.com/garybowers/bootimus#readme</ReadMe>
+  <Overview>A production-ready, self-contained PXE and HTTP boot server written in Go with embedded iPXE bootloaders, SQLite/PostgreSQL support, and a full-featured web admin interface.</Overview>
+  <Category>Productivity: Tools:Utilities Network:Other</Category>
+  <WebUI>http://[IP]:[PORT:8081]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/danalec/unraid-templates/main/templates/bootimus.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/devzwf/unraid-docker-templates/main/images/bootimus.png</Icon>
+  <ExtraParams>--cap-add=NET_BIND_SERVICE --restart=unless-stopped</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="TFTP Server Port" Target="69" Default="69" Mode="udp" Description="TFTP port" Type="Port" Display="always" Required="false" Mask="false">69</Config>
+  <Config Name="Web UI" Target="8081" Default="8081" Mode="tcp" Description="Web UI / Admin port" Type="Port" Display="always" Required="false" Mask="false">8086</Config>
+  <Config Name="PXE HTTP port" Target="8889" Default="8889" Mode="tcp" Description="PXE client HTTP port" Type="Port" Display="always" Required="true" Mask="false">8889</Config>
+  <Config Name="BOOTIMUS_HTTP_PORT" Target="BOOTIMUS_HTTP_PORT" Default="8889" Mode="" Description="HTTP port listened on by Bootimus" Type="Variable" Display="always" Required="false" Mask="false">8889</Config>
+  <Config Name="BOOTIMUS_SERVER_ADDR" Target="BOOTIMUS_SERVER_ADDR" Default="[IP]" Mode="" Description="LAN IP of server advertised to PXE clients" Type="Variable" Display="always" Required="false" Mask="false">[IP]</Config>
+  <Config Name="Data Directory" Target="/data" Default="/mnt/user/appdata/bootimus/data" Mode="rw" Description="Data Directory" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/bootimus/data</Config>
+  <Config Name="Isos Directory" Target="/data/isos" Default="/mnt/user/isos/" Mode="rw" Description="ISOs Directory" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/isos/</Config>
+  <Config Name="BOOTIMUS_WINDOWS_SMB_ENABLED" Target="BOOTIMUS_WINDOWS_SMB_ENABLED" Default="FALSE" Mode="" Description="Enable Windows SMB" Type="Variable" Display="always" Required="false" Mask="false">FALSE</Config>
+  <Config Name="BOOTIMUS_PROXY_DHCP_ENABLED" Target="BOOTIMUS_PROXY_DHCP_ENABLED" Default="FALSE" Mode="" Description="proxyDHCP coexistence" Type="Variable" Display="advanced" Required="false" Mask="false">FALSE</Config>
+  <TailscaleStateDir/>
+</Container>\n

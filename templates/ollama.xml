@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ollama</Name>
+  <Repository>ollama/ollama:rocm</Repository>
+  <Registry>https://hub.docker.com/r/ollama/ollama/</Registry>
+  <Network>br0</Network>
+  <MyIP>192.168.0.14</MyIP>
+  <MyMAC/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/ollama/ollama/</Support>
+  <Project>https://ollama.com/</Project>
+  <ReadMe>https://docs.ollama.com/</ReadMe>
+  <Overview>Official Ollama image for local AI inference. Configured for dedicated macvlan IP on br0 with persistent model storage and optimized keep-alive.</Overview>
+  <Category>AI: Other:</Category>
+  <WebUI>http://[IP]:[PORT:11434]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/danalec/unraid-templates/main/templates/ollama.xml</TemplateURL>
+  <Icon>https://ollama.ai/public/ollama.png</Icon>
+  <Config Name="Data" Target="/root/.ollama" Default="/mnt/user/appdata/ollama" Mode="rw" Description="Model weights and storage" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/ollama</Config>
+  <Config Name="API Interface Port" Target="11434" Default="11434" Mode="tcp" Description="Port number where ollama listens on." Type="Port" Display="always" Required="true" Mask="false">11434</Config>
+  <Config Name="OLLAMA_HOST" Target="OLLAMA_HOST" Default="0.0.0.0:11434" Mode="" Description="Listen address" Type="Variable" Display="always" Required="true" Mask="false">0.0.0.0:11434</Config>
+  <Config Name="OLLAMA_ORIGINS" Target="OLLAMA_ORIGINS" Default="*" Mode="" Description="Allowed CORS origins" Type="Variable" Display="always" Required="true" Mask="false">*</Config>
+  <Config Name="OLLAMA_KEEP_ALIVE" Target="OLLAMA_KEEP_ALIVE" Default="24h" Mode="" Description="Model keep-alive in memory" Type="Variable" Display="always" Required="false" Mask="false">24h</Config>
+  <Config Name="OLLAMA_NUM_PARALLEL" Target="OLLAMA_NUM_PARALLEL" Default="2" Mode="" Description="Max parallel requests" Type="Variable" Display="advanced" Required="false" Mask="false">2</Config>
+  <Config Name="OLLAMA_CONTEXT_LENGTH" Target="OLLAMA_CONTEXT_LENGTH" Default="8192" Mode="" Description="Context length in tokens" Type="Variable" Display="advanced" Required="false" Mask="false">8192</Config>
+  <TailscaleStateDir/>
+</Container>\n

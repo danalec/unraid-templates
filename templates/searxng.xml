@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>SearXNG</Name>
+  <Repository>searxng/searxng</Repository>
+  <Registry>https://hub.docker.com/r/searxng/searxng</Registry>
+  <Network>br0</Network>
+  <MyIP>192.168.0.20</MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/130158-support-kilrahsearxng/</Support>
+  <Project>https://github.com/searxng/searxng</Project>
+  <ReadMe/>
+  <Overview>Privacy-respecting, hackable metasearch engine.</Overview>
+  <Category>Productivity: Other:</Category>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/danalec/unraid-templates/main/templates/searxng.xml</TemplateURL>
+  <Icon>https://github.com/kilrah/unraid-docker-templates/raw/main/icons/searxng.png</Icon>
+  <Config Name="Port" Target="80" Default="80" Mode="tcp" Description="Port" Type="Port" Display="always" Required="true" Mask="false">80</Config>
+  <Config Name="Config" Target="/etc/searxng" Default="/mnt/user/appdata/searxng/" Mode="rw" Description="Config directory" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/searxng/</Config>
+  <Config Name="SearXNG Instance Name" Target="INSTANCE_NAME" Default="searxng" Mode="" Description="Instance name" Type="Variable" Display="always" Required="false" Mask="false">searxng</Config>
+  <TailscaleStateDir/>
+</Container>\n

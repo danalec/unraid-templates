@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>open-webui</Name>
+  <Repository>ghcr.io/open-webui/open-webui:slim</Repository>
+  <Registry>https://github.com/open-webui/open-webui/pkgs/container/open-webui</Registry>
+  <Network>br0</Network>
+  <MyIP>192.168.0.13</MyIP>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/open-webui/open-webui/issues</Support>
+  <Project>https://github.com/open-webui/open-webui</Project>
+  <ReadMe>https://docs.openwebui.com/</ReadMe>
+  <Overview>ChatGPT-style Web Interface for various LLM runners, including Ollama and OpenAI-compatible APIs.</Overview>
+  <Category>AI: Tools:Utilities Network:Web</Category>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/danalec/unraid-templates/main/templates/open-webui.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/open-webui/open-webui/main/static/favicon.png</Icon>
+  <Config Name="Data" Target="/app/backend/data" Default="/mnt/user/appdata/open-webui" Mode="rw" Description="Persistent data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/open-webui</Config>
+  <Config Name="WebUI Port" Target="8080" Default="8080" Mode="tcp" Description="Sets the port to run Open WebUI from." Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="OLLAMA_BASE_URL" Target="OLLAMA_BASE_URL" Default="http://192.168.0.14:11434" Mode="" Description="Ollama backend URL" Type="Variable" Display="always" Required="false" Mask="false">http://192.168.0.14:11434</Config>
+  <Config Name="ENABLE_OLLAMA_API" Target="ENABLE_OLLAMA_API" Default="true" Mode="" Description="Enable Ollama API" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="ENABLE_OPENAI_API" Target="ENABLE_OPENAI_API" Default="true" Mode="" Description="Enable OpenAI API" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <TailscaleStateDir/>
+</Container>\n

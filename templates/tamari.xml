@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>tamari</Name>
+  <Repository>192.168.0.10:3000/danalec/tamari:latest</Repository>
+  <Registry>http://192.168.0.10:3000</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>http://192.168.0.10:3000/danalec/tamari</Support>
+  <Project/>
+  <ReadMe/>
+  <Overview>Tamari - self-hosted recipe manager (v1.7). Store, search and share recipes; favorites, categories, meal planning, shopping lists and import from 300+ sites.</Overview>
+  <Category>Productivity:</Category>
+  <WebUI>http://[IP]:[PORT:4888]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/danalec/unraid-templates/main/templates/tamari.xml</TemplateURL>
+  <Icon/>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <Config Name="WebUI port" Target="4888" Default="4888" Mode="tcp" Description="Tamari web interface (gunicorn)" Type="Port" Display="always" Required="false" Mask="false">4888</Config>
+  <Config Name="Appdata" Target="/app/appdata" Default="/mnt/user/appdata/tamari" Mode="rw" Description="SQLite DB and recipe photos" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/tamari</Config>
+  <Config Name="Public URL" Target="PUBLIC_URL" Default="" Mode="" Description="Optional public URL, e.g. https://tamari.example.com" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Disable registration" Target="REG_DISABLED" Default="False" Mode="" Description="Set to True to disable new user registration" Type="Variable" Display="advanced" Required="false" Mask="false">False</Config>
+  <TailscaleStateDir/>
+</Container>\n
