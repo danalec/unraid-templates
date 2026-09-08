@@ -21,5 +21,6 @@
   <Config Name="Data" Target="/home/vane/data" Default="/mnt/user/appdata/vane" Mode="rw" Description="Persistent data and configuration" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/vane</Config>
   <Config Name="WebUI Port" Target="3000" Default="3000" Mode="tcp" Description="Sets the port to run Vane web interface." Type="Port" Display="always" Required="true" Mask="false">3000</Config>
   <Config Name="SEARXNG_API_URL" Target="SEARXNG_API_URL" Default="http://192.168.0.20:80" Mode="" Description="URL of the SearXNG search engine instance" Type="Variable" Display="always" Required="true" Mask="false">http://192.168.0.20:80</Config>
+  <Config Name="OLLAMA_BASE_URL" Target="OLLAMA_BASE_URL" Default="http://192.168.0.14:11434" Mode="" Description="URL of the Ollama backend instance" Type="Variable" Display="always" Required="true" Mask="false">http://192.168.0.14:11434</Config>
   <TailscaleStateDir/>
 </Container>
