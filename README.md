@@ -29,3 +29,5 @@ Repositório público de templates de containers Docker personalizados para o Un
 | **qbit-ok-proxy** | Proxy de compatibilidade de autenticação qBittorrent 5.x | bridge | 8081 |
 | **Tamari** | Gerenciador de receitas culinárias | bridge | 4888 |
 | **Scoop-Alts-Scheduler** | Agendador de sincronização do bucket Scoop | bridge | — |
+| **Wardrowbe Backend** | Backend IA para gerenciamento de roupas e outfits (FastAPI + Workers) | bridge | 8002 |
+| **Wardrowbe Frontend** | Interface Web responsiva do Wardrowbe (Next.js) | bridge | 3300 |

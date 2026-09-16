@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>wardrobe-backend</Name>
+  <Repository>ghcr.io/anyesh/wardrowbe:backend-latest</Repository>
+  <Registry>https://github.com/Anyesh/wardrowbe/pkgs/container/wardrowbe</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/Anyesh/wardrowbe/issues</Support>
+  <Project>https://github.com/Anyesh/wardrowbe</Project>
+  <ReadMe>https://github.com/Anyesh/wardrowbe/blob/main/README.md</ReadMe>
+  <Overview>Wardrowbe Backend — Self-hosted AI-powered wardrobe management backend (FastAPI, Alembic, arq workers for AI tagging and image processing). Integrates with Ollama for vision and text inference.</Overview>
+  <Category>AI: Productivity: HomeAutomation: Other:</Category>
+  <WebUI>http://[IP]:[PORT:8002]/api/v1/health</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/danalec/unraid-templates/main/templates/wardrobe-backend.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/Anyesh/wardrowbe/main/frontend/public/logo.svg</Icon>
+  <ExtraParams>--restart=unless-stopped</ExtraParams>
+  <PostArgs>sh -c "alembic upgrade head &amp;&amp; arq app.workers.worker.WorkerSettings &amp; arq app.workers.image_worker.ImageWorkerSettings &amp; exec uvicorn app.main:app --host 0.0.0.0 --port 8000"</PostArgs>
+  <CPUset/>
+  <Config Name="Backend API Port" Target="8000" Default="8002" Mode="tcp" Description="Host port for the Backend API" Type="Port" Display="always" Required="true" Mask="false">8002</Config>
+  <Config Name="Storage" Target="/data/wardrobe" Default="/mnt/user/appdata/wardrobe" Mode="rw" Description="Persistent storage for uploaded clothing photos and thumbnails" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/wardrobe</Config>
+  <Config Name="Database URL" Target="DATABASE_URL" Default="postgresql+asyncpg://wardrobe:337592a02045f28bb131636ae292c697@192.168.0.10:5432/wardrobe" Mode="" Description="PostgreSQL connection string (asyncpg)" Type="Variable" Display="always" Required="true" Mask="false">postgresql+asyncpg://wardrobe:337592a02045f28bb131636ae292c697@192.168.0.10:5432/wardrobe</Config>
+  <Config Name="Redis URL" Target="REDIS_URL" Default="redis://192.168.0.10:6379/1" Mode="" Description="Redis connection string for arq worker job queue" Type="Variable" Display="always" Required="true" Mask="false">redis://192.168.0.10:6379/1</Config>
+  <Config Name="Secret Key" Target="SECRET_KEY" Default="8ad59135e0029a03f07a53a0e54e489fdcc54058e62be6ce3f0d5fc3347bbaf3" Mode="" Description="JWT Secret key for authentication" Type="Variable" Display="always" Required="true" Mask="true">8ad59135e0029a03f07a53a0e54e489fdcc54058e62be6ce3f0d5fc3347bbaf3</Config>
+  <Config Name="AI Base URL" Target="AI_BASE_URL" Default="http://192.168.0.14:11434/v1" Mode="" Description="Ollama / OpenAI API endpoint URL" Type="Variable" Display="always" Required="true" Mask="false">http://192.168.0.14:11434/v1</Config>
+  <Config Name="AI API Key" Target="AI_API_KEY" Default="not-needed" Mode="" Description="API Key for AI provider (not needed for Ollama)" Type="Variable" Display="always" Required="false" Mask="false">not-needed</Config>
+  <Config Name="AI Vision Model" Target="AI_VISION_MODEL" Default="minicpm-v:latest" Mode="" Description="Vision model for clothing image analysis (e.g. minicpm-v:latest, gemma3:latest, llava:7b)" Type="Variable" Display="always" Required="true" Mask="false">minicpm-v:latest</Config>
+  <Config Name="AI Text Model" Target="AI_TEXT_MODEL" Default="llama3.2:latest" Mode="" Description="Text model for outfit recommendations (e.g. llama3.2:latest, gemma3:latest, qwen3:8b)" Type="Variable" Display="always" Required="true" Mask="false">llama3.2:latest</Config>
+  <Config Name="AI Timeout" Target="AI_TIMEOUT" Default="300" Mode="" Description="Timeout in seconds for AI inference requests" Type="Variable" Display="advanced" Required="false" Mask="false">300</Config>
+  <Config Name="AI Tagging Concurrency" Target="AI_TAGGING_CONCURRENCY" Default="1" Mode="" Description="Number of concurrent AI tagging tasks" Type="Variable" Display="advanced" Required="false" Mask="false">1</Config>
+  <Config Name="AI Reasoning Effort" Target="AI_REASONING_EFFORT" Default="none" Mode="" Description="Reasoning effort level (none/low/medium/high)" Type="Variable" Display="advanced" Required="false" Mask="false">none</Config>
+  <Config Name="CORS Origins" Target="CORS_ORIGINS" Default="[&quot;*&quot;]" Mode="" Description="Allowed CORS origins" Type="Variable" Display="advanced" Required="false" Mask="false">[&quot;*&quot;]</Config>
+  <Config Name="Debug Mode" Target="DEBUG" Default="true" Mode="" Description="Enable debug mode and dev credentials" Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+  <TailscaleStateDir/>
+</Container>

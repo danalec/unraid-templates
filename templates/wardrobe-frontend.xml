@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>wardrobe-frontend</Name>
+  <Repository>ghcr.io/anyesh/wardrowbe:frontend-latest</Repository>
+  <Registry>https://github.com/Anyesh/wardrowbe/pkgs/container/wardrowbe</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/Anyesh/wardrowbe/issues</Support>
+  <Project>https://github.com/Anyesh/wardrowbe</Project>
+  <ReadMe>https://github.com/Anyesh/wardrowbe/blob/main/README.md</ReadMe>
+  <Overview>Wardrowbe Frontend — Next.js responsive web UI for AI-powered wardrobe management, daily outfit recommendations, and wear analytics.</Overview>
+  <Category>AI: Productivity: HomeAutomation: Other:</Category>
+  <WebUI>http://[IP]:[PORT:3300]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/danalec/unraid-templates/main/templates/wardrobe-frontend.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/Anyesh/wardrowbe/main/frontend/public/logo.svg</Icon>
+  <ExtraParams>--restart=unless-stopped</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <Config Name="Frontend Web UI Port" Target="3000" Default="3300" Mode="tcp" Description="Host port for the Web UI" Type="Port" Display="always" Required="true" Mask="false">3300</Config>
+  <Config Name="Backend URL" Target="BACKEND_URL" Default="http://192.168.0.10:8002" Mode="" Description="Internal URL to the Wardrowbe backend API" Type="Variable" Display="always" Required="true" Mask="false">http://192.168.0.10:8002</Config>
+  <Config Name="NextAuth URL" Target="NEXTAUTH_URL" Default="http://192.168.0.10:3300" Mode="" Description="Public URL where this frontend is reached" Type="Variable" Display="always" Required="true" Mask="false">http://192.168.0.10:3300</Config>
+  <Config Name="NextAuth Secret" Target="NEXTAUTH_SECRET" Default="583354034074392cdacfe7ca6a1041d17a06f5db6ba2538d8dcf0c18d4a6b057" Mode="" Description="NextAuth encryption secret" Type="Variable" Display="always" Required="true" Mask="true">583354034074392cdacfe7ca6a1041d17a06f5db6ba2538d8dcf0c18d4a6b057</Config>
+  <Config Name="Dev Mode" Target="DEV_MODE" Default="true" Mode="" Description="Enable single-click dev login without OIDC" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <TailscaleStateDir/>
+</Container>
